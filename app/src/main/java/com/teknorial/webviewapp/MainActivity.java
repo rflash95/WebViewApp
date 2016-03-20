@@ -18,7 +18,7 @@ public class MainActivity extends ActionBarActivity {
         view = (WebView) this.findViewById(R.id.webView);
         view.getSettings().setJavaScriptEnabled(true);
         view.setWebViewClient(new MyBrowser());
-        view.loadUrl("http://www.w3schools.com/js/tryit.asp?filename=tryjs_alert"); //sample js alert
+        view.loadUrl("http://www.w3schools.com/js/tryit.asp?filename=tryjs_alert"); //try js alert
         view.setWebChromeClient(new WebChromeClient()); // adding js alert support
     }
 
