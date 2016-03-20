@@ -3,8 +3,9 @@ package com.teknorial.webviewapp;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
-import android.webkit.WebView; //import WebView class
-import android.webkit.WebViewClient; //import WebViewClient class
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class MainActivity extends ActionBarActivity {
     private WebView view; //membuat variabel view agar bisa akses method onKeyDown
@@ -17,7 +18,8 @@ public class MainActivity extends ActionBarActivity {
         view = (WebView) this.findViewById(R.id.webView);
         view.getSettings().setJavaScriptEnabled(true);
         view.setWebViewClient(new MyBrowser());
-        view.loadUrl("http://teknorial.com");
+        view.loadUrl("http://www.w3schools.com/js/tryit.asp?filename=tryjs_alert"); //sample js alert
+        view.setWebChromeClient(new WebChromeClient()); // adding js alert support
     }
 
     private class MyBrowser extends WebViewClient {
@@ -27,6 +29,7 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
     }
+
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         //ketika disentuh tombol back
         if ((keyCode == KeyEvent.KEYCODE_BACK) && view.canGoBack()) {
